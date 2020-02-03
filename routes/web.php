@@ -12,5 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+
+    $users = App\User::all();  // consulta en el modelo de todos los usuarios
+
+    return view('welcome', ['users' => $users]);
 });
