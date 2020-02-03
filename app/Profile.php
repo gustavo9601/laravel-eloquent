@@ -10,4 +10,10 @@ class Profile extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+
+    //Un profile tiene una localizacion
+    public function location(){
+        return $this->hasOne(Location::class);
+    }
+
 }

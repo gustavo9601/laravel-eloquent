@@ -58,4 +58,11 @@ class User extends Authenticatable
         return $this->belongsToMany(Group::class)->withTimestamps();
     }
 
+    // Tengo una localizacion atraves de Profile
+    // Sirve cuando la relacion hay alguna otra tabla intermedia
+    // Para ello en la tabla intermedia debe existir la relacion hasOne normal
+    public function location(){
+        return $this->hasOneThrough(Location::class, Profile::class);
+    }
+
 }

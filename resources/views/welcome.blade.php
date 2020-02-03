@@ -74,8 +74,7 @@
                 <div class="links">
 
                     @foreach($users as $user)
-
-                        <a href=""></a>    
+                        <a href="#">{{$user->name}}</a>
                     @endforeach
                 </div>
             </div>
