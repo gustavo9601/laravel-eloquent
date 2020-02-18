@@ -18,6 +18,7 @@ use Faker\Generator as Faker;
 
 $factory->define(User::class, function (Faker $faker) {
     return [
+        'level_id' => $faker->randomElements([null,1,2,3]),   //se configura para que pueda asignara aletaroiamente nulos
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
         'email_verified_at' => now(),
