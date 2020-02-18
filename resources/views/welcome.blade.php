@@ -65,14 +65,11 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-
             <div class="content">
                 <div class="title m-b-md">
                     Laravel: Eloquent y Relaciones
                 </div>
-
                 <div class="links">
-
                     @foreach($users as $user)
                         <a href="#">{{$user->name}}</a>
                     @endforeach

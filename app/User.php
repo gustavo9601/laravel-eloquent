@@ -37,8 +37,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-
-
     //Un usuario tiene un solo perfil
     public function profile(){
         return $this->hasOne(Profile::class);
@@ -49,13 +47,16 @@ class User extends Authenticatable
         return $this->belongsTo(Level::class);
     }
 
-
     //Un usuario puede pertenece y tiene muchos grupos
     // relacion muchos a muchos
     public function groups(){
-
         // ->withTimestamps()  // permite llenar la tabla en los campos create_at y update_at
         return $this->belongsToMany(Group::class)->withTimestamps();
+    }
+
+    //un usuario tiene muchos comentarios
+    public function comments(){
+        return $this->hasMany(Comment::class);
     }
 
     // Tengo una localizacion atraves de Profile
@@ -63,6 +64,18 @@ class User extends Authenticatable
     // Para ello en la tabla intermedia debe existir la relacion hasOne normal
     public function location(){
         return $this->hasOneThrough(Location::class, Profile::class);
+    }
+
+
+
+    //un usuario tiene muchos posts
+    public function posts(){
+        return $this->hasMany(Post::class);
+    }
+
+    //un usuario tiene muchos videos
+    public function videos(){
+        return $this->hasMany(Video::class);
     }
 
 }
