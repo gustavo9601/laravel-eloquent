@@ -78,4 +78,10 @@ class User extends Authenticatable
         return $this->hasMany(Video::class);
     }
 
+
+    //un usuario tiene una imagen
+    public function image(){
+        return $this->morphOne(Image::class, 'imageable');
+    }
+
 }

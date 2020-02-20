@@ -23,7 +23,7 @@ class Video extends Model
         // en este caso es polimorfico
         // el metodo polimorfico sera commentable
         // para que permita reutilizar los mismos campos especificando el valor y la entidad a la que hace relacion
-        return $this->morphMany(Comment::class, 'commentable');
+        return $this->morphMany(Comentarios::class, 'commentable');
         //comentable_id
         //comentable_type
 

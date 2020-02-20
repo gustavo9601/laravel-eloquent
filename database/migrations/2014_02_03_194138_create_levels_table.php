@@ -13,6 +13,8 @@ class CreateLevelsTable extends Migration
      */
     public function up()
     {
+
+        $this->down();
         Schema::create('levels', function (Blueprint $table) {
             $table->bigIncrements('id');
 

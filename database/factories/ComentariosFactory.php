@@ -14,7 +14,7 @@ $factory->define(Comentarios::class, function (Faker $faker) {
     $cantidad = $usuarios->count();
 
     return [
-        'name' => $faker->text,
+        'body' => $faker->text,
         'user_id' => rand(1, $cantidad)
     ];
 });

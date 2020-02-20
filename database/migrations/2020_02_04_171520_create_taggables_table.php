@@ -26,9 +26,6 @@ class CreateTaggablesTable extends Migration
             // crea 2 campos uno al ID y el otro a la entidad
             $table->morphs('taggable');
 
-            $table->timestamps();
-
-
             //si eliminio la etiqueta se va a eliminar el
             $table->foreign('tag_id')->references('id')->on('tags')
                 ->onDelete('cascade')

@@ -71,7 +71,7 @@
                 </div>
                 <div class="links">
                     @foreach($users as $user)
-                        <a href="#">{{$user->name}}</a>
+                        <a href="{{route('profile', $user->id)}}">{{$user->name}}</a>
                     @endforeach
                 </div>
             </div>
