@@ -19,9 +19,8 @@ Route::get('/', function () {
 });
 
 
+Route::get('profile/{id}', function ($id) {
 
-
-Route::get('profile/{id}', function($id){
 
     $user = \App\User::find($id);
 
@@ -40,9 +39,29 @@ Route::get('profile/{id}', function($id){
 
 
     return view('profile', [
-       'user' => $user,
+        'user' => $user,
         'posts' => $posts,
         'videos' => $videos
     ]);
 
 })->name('profile');
+
+
+Route::get('level/{id}', function ($id) {
+    $level = \App\Level::find($id);
+
+    $posts = $level->posts()
+        ->with('category', 'image', 'tags')    //nombre de los metodos en el Modelo post para que traiga el join en la consulta
+        ->withCount('comments')->get();
+
+    $videos = $level->videos()
+        ->with('category', 'image', 'tags')    //nombre de los metodos en el Modelo Video para que traiga el join en la consulta
+        ->withCount('comments')->get();
+
+    return view('level', [
+        'level' => $level,
+        'posts' => $posts,
+        'videos' => $videos
+    ]);
+
+})->name('level');
